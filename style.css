@@ -1,0 +1,203 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container { max-width: 640px; width: 100%; }
+
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 40px;
+  color: #e0e0e0;
+}
+
+h2 { font-size: 1.5em; margin-bottom: 16px; color: #fff; }
+
+/* ── 表单字段 ── */
+.field { margin-bottom: 16px; }
+.field:last-child { margin-bottom: 0; }
+.field label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9em;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+.field input[type="text"],
+.field input[type="password"] {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  color: #64b5f6;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95em;
+  outline: none;
+  transition: border 0.2s;
+}
+.field input:focus { border-color: rgba(102,126,234,0.6); }
+.field input::placeholder { color: #555; }
+
+/* ── 代理地址框 ── */
+.proxy-box {
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(255,152,0,0.08);
+  border: 1px solid rgba(255,152,0,0.2);
+  border-radius: 10px;
+}
+
+/* ── 高级配置框 ── */
+.config-box {
+  margin-top: 16px;
+  padding: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+}
+.config-box summary {
+  cursor: pointer;
+  color: #888;
+  font-size: 0.9em;
+}
+.config-inner { margin-top: 12px; }
+.config-inner .field + .field { margin-top: 10px; }
+
+/* ── 按钮 ── */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  margin-top: 16px;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+}
+.btn.full-width { width: 100%; margin-top: 12px; }
+
+.copy-btn {
+  padding: 4px 10px;
+  font-size: 0.8em;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+/* ── Code 输入区域 ── */
+.code-section {
+  margin-top: 24px;
+  padding: 20px;
+  background: rgba(102,126,234,0.1);
+  border: 1px solid rgba(102,126,234,0.3);
+  border-radius: 12px;
+}
+.code-section h3 {
+  font-size: 1.1em;
+  margin-bottom: 12px;
+  color: #64b5f6;
+}
+.code-section ol {
+  font-size: 0.9em;
+  color: #aaa;
+  margin-bottom: 16px;
+  padding-left: 20px;
+  line-height: 1.8;
+}
+.code-section code { color: #64b5f6; }
+.code-input {
+  font-size: 1em !important;
+  padding: 14px !important;
+}
+
+/* ── 结果区域 ── */
+#result { margin-top: 12px; }
+
+.error-msg {
+  background: rgba(244,67,54,0.1);
+  padding: 12px;
+  border-radius: 8px;
+  color: #ef9a9a;
+  font-family: monospace;
+}
+
+/* ── Token 展示 ── */
+.token-section { margin: 20px 0; }
+.token-block { margin-bottom: 16px; }
+.token-block label {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+textarea {
+  width: 100%;
+  height: 80px;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: #64b5f6;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.82em;
+  padding: 10px;
+  resize: none;
+  word-break: break-all;
+}
+
+.meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 0.9em;
+  color: #999;
+  margin: 8px 0;
+}
+.meta code { color: #64b5f6; }
+.meta strong { color: #e0e0e0; }
+
+.warn {
+  background: rgba(255,152,0,0.1);
+  border: 1px solid rgba(255,152,0,0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 0.9em;
+  color: #ffb74d;
+  margin: 20px 0;
+}
+
+.success-box {
+  margin-top: 16px;
+  padding: 16px;
+  background: rgba(76,175,80,0.1);
+  border: 1px solid rgba(76,175,80,0.3);
+  border-radius: 8px;
+}
+.success-box h4 {
+  color: #81c784;
+  margin-bottom: 12px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsoft OAuth2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card" id="page-home">
+      <h2>🔐 Microsoft OAuth2 授权</h2>
+
+      <!-- 代理地址配置 -->
+      <div class="proxy-box">
+        <div class="field">
+          <label>🌐 代理服务地址（必填）</label>
+          <input type="text" id="input-proxy" placeholder="https://your-worker.your-subdomain.workers.dev" />
+        </div>
+      </div>
+
+      <!-- 高级配置 -->
+      <div class="config-box">
+        <details>
+          <summary>⚙️ 高级配置（自定义应用）</summary>
+          <div class="config-inner">
+            <div class="field">
+              <label>Client ID（留空使用公共应用）</label>
+              <input type="text" id="input-client-id" placeholder="9e5f94bc-e8a4-4e73-b8be-63364c29d753" />
+            </div>
+            <div class="field">
+              <label>Client Secret（公开客户端留空）</label>
+              <input type="password" id="input-client-secret" placeholder="机密客户端填写，公开客户端留空" />
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <button class="btn" onclick="handleAuthorize()">🚀 获取授权code</button>
+
+      <!-- 手动输入 code -->
+      <div class="code-section">
+        <h3>📋 获取 Token</h3>
+        <ol>
+          <li>先填写上方 🌐 代理服务地址</li>
+          <li>在 ⚙️ 高级配置 填写你的 Client ID 和 Secret（机密客户端）</li>
+          <li>点击上方按钮，完成 Microsoft 授权</li>
+          <li>浏览器会跳转到 <code>http://localhost?code=xxx</code></li>
+          <li>复制 URL 中的 <strong>code</strong> 参数值</li>
+          <li>回到此页面，粘贴到下方输入框</li>
+        </ol>
+        <div class="field">
+          <label style="color: #fff; font-size: 1em;">Authorization Code</label>
+          <input type="text" id="input-code" placeholder="粘贴从 localhost URL 中复制的 code" class="code-input" />
+        </div>
+        <button onclick="exchangeCode()" class="btn full-width">🔄 交换获取 Token</button>
+        <div id="result"></div>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
