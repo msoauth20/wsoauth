@@ -5,6 +5,9 @@
  * - 复制 Token
  */
 
+// ── 默认 Client ID（只改这里即可全局生效） ──
+var DEFAULT_CLIENT_ID = '14d82eec-204b-4c2f-b7e8-296a70dab67e';
+
 function escapeHTML(str) {
   return String(str)
     .replace(/&/g, '&amp;')
@@ -28,7 +31,7 @@ function extractCode(input) {
 
 // ── 跳转到微软授权页 ──
 function handleAuthorize() {
-  var clientId = document.getElementById('input-client-id').value.trim() || '14d82eec-204b-4c2f-b7e8-296a70dab67e';
+  var clientId = document.getElementById('input-client-id').value.trim() || DEFAULT_CLIENT_ID;
   var scopes = encodeURIComponent('offline_access https://graph.microsoft.com/Mail.Read https://graph.microsoft.com/Mail.Send');
   var redirectUri = encodeURIComponent('http://localhost');
 
@@ -52,6 +55,8 @@ window.addEventListener('DOMContentLoaded', function () {
     document.getElementById('input-code').value = code;
     exchangeCode();
   }
+  // 同步 placeholder
+  document.getElementById('input-client-id').placeholder = DEFAULT_CLIENT_ID;
   // 输入框实时识别：粘贴或输入 URL 时自动提取 code
   var codeInput = document.getElementById('input-code');
   codeInput.addEventListener('input', function () {
@@ -83,7 +88,7 @@ async function exchangeCode() {
   // 去掉末尾斜杠
   proxyUrl = proxyUrl.replace(/\/+$/, '');
 
-  var clientId = document.getElementById('input-client-id').value.trim() || '14d82eec-204b-4c2f-b7e8-296a70dab67e';
+  var clientId = document.getElementById('input-client-id').value.trim() || DEFAULT_CLIENT_ID;
   var clientSecret = document.getElementById('input-client-secret').value.trim();
 
   el.innerHTML = '<div style="color: #64b5f6;">⏳ 正在通过代理交换 Token...</div>';
