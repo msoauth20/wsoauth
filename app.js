@@ -87,19 +87,8 @@ async function exchangeCode() {
         '<h4>✅ Token 获取成功！</h4>' +
         '<div class="token-section">' +
           '<div class="token-block">' +
-            '<label>Access Token <button onclick="copyToken(\'access\')" class="copy-btn">📋 复制</button></label>' +
-            '<textarea id="access-token" readonly>' + escapeHTML(t.access_token) + '</textarea>' +
-          '</div>' +
-          '<div class="token-block">' +
             '<label>Refresh Token <button onclick="copyToken(\'refresh\')" class="copy-btn">📋 复制</button></label>' +
             '<textarea id="refresh-token" readonly>' + escapeHTML(t.refresh_token) + '</textarea>' +
-          '</div>' +
-          '<div class="meta">' +
-            '<span>⏱️ 有效期: <strong>' + t.expires_in + 's</strong> (' + Math.round(t.expires_in / 60) + ' 分钟)</span>' +
-            '<span>🔑 类型: <strong>' + escapeHTML(t.token_type) + '</strong></span>' +
-          '</div>' +
-          '<div class="meta">' +
-            '<span>📎 权限: <code>' + escapeHTML(t.scope) + '</code></span>' +
           '</div>' +
         '</div>' +
         '<div class="warn">⚠️ 请立即保存 Refresh Token！关闭页面后无法再次查看。</div>' +
