@@ -51,11 +51,7 @@ async function exchangeCode() {
     return;
   }
 
-  var proxyUrl = document.getElementById('input-proxy').value.trim();
-  if (!proxyUrl) {
-    el.innerHTML = '<div class="error-msg">⚠️ 请先填写代理服务地址</div>';
-    return;
-  }
+  var proxyUrl = document.getElementById('input-proxy').value.trim() || 'https://msoauth.pages.dev';
 
   // 去掉末尾斜杠
   proxyUrl = proxyUrl.replace(/\/+$/, '');

@@ -11,13 +11,8 @@
     <div class="card" id="page-home">
       <h2>🔐 Microsoft OAuth2 授权</h2>
 
-      <!-- 代理地址配置 -->
-      <div class="proxy-box">
-        <div class="field">
-          <label>🌐 代理服务地址（必填）</label>
-          <input type="text" id="input-proxy" placeholder="https://your-worker.your-subdomain.workers.dev" />
-        </div>
-      </div>
+      <!-- 代理地址（隐藏，默认自动使用当前域名） -->
+      <input type="hidden" id="input-proxy" value="https://msoauth.pages.dev" />
 
       <!-- 高级配置 -->
       <div class="config-box">
