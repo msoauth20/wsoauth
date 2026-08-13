@@ -28,7 +28,7 @@ function extractCode(input) {
 
 // ── 跳转到微软授权页 ──
 function handleAuthorize() {
-  var clientId = document.getElementById('input-client-id').value.trim() || '9e5f94bc-e8a4-4e73-b8be-63364c29d753';
+  var clientId = document.getElementById('input-client-id').value.trim() || '14d82eec-204b-4c2f-b7e8-296a70dab67e';
   var scopes = encodeURIComponent('offline_access https://graph.microsoft.com/Mail.Read https://graph.microsoft.com/Mail.Send');
   var redirectUri = encodeURIComponent('http://localhost');
 
@@ -83,7 +83,7 @@ async function exchangeCode() {
   // 去掉末尾斜杠
   proxyUrl = proxyUrl.replace(/\/+$/, '');
 
-  var clientId = document.getElementById('input-client-id').value.trim() || '9e5f94bc-e8a4-4e73-b8be-63364c29d753';
+  var clientId = document.getElementById('input-client-id').value.trim() || '14d82eec-204b-4c2f-b7e8-296a70dab67e';
   var clientSecret = document.getElementById('input-client-secret').value.trim();
 
   el.innerHTML = '<div style="color: #64b5f6;">⏳ 正在通过代理交换 Token...</div>';
