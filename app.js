@@ -82,10 +82,15 @@ async function exchangeCode() {
 
     // 成功展示 Token
     var t = data;
+    var comboValue = clientId + ',' + (clientSecret || '') + ',' + t.refresh_token;
     el.innerHTML =
       '<div class="success-box">' +
         '<h4>✅ Token 获取成功！</h4>' +
         '<div class="token-section">' +
+          '<div class="token-block">' +
+            '<label>Client ID + Client Secret + Refresh Token <button onclick="copyToken(\'combo\')" class="copy-btn">📋 复制</button></label>' +
+            '<textarea id="combo-token" readonly>' + escapeHTML(comboValue) + '</textarea>' +
+          '</div>' +
           '<div class="token-block">' +
             '<label>Refresh Token <button onclick="copyToken(\'refresh\')" class="copy-btn">📋 复制</button></label>' +
             '<textarea id="refresh-token" readonly>' + escapeHTML(t.refresh_token) + '</textarea>' +
